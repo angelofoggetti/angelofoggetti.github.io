@@ -12,223 +12,380 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Lato', 'Segoe UI', sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: white;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
         }
 
         header {
-            background: rgba(255, 255, 255, 0.95);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border-radius: 0 0 100px 100px;
+            padding: 3rem 2rem 4rem 2rem;
+            margin-bottom: 0;
+            color: white;
             text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .profile-section {
+            position: relative;
+            z-index: 2;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
-            background: #667eea;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: white;
             font-weight: bold;
+            border: 3px solid rgba(255, 255, 255, 0.2);
         }
 
         h1 {
-            color: #2c3e50;
+            color: white;
             margin-bottom: 0.5rem;
-            font-size: 2.5rem;
+            font-size: 3rem;
+            font-weight: 300;
         }
 
         .subtitle {
-            color: #7f8c8d;
-            font-size: 1.2rem;
+            color: #ff6b6b;
+            font-size: 1.3rem;
             margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .hero-description {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-links {
             display: flex;
             justify-content: center;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            gap: 1.5rem;
+            margin-top: 2rem;
             flex-wrap: wrap;
         }
 
         .contact-links a {
-            color: #667eea;
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border: 2px solid #667eea;
+            padding: 12px 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
         .contact-links a:hover {
-            background: #667eea;
-            color: white;
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #ff6b6b;
             transform: translateY(-2px);
         }
 
-        nav {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 50px;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 0.5rem 1.5rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-        }
-
-        nav a:hover, nav a.active {
-            background: #667eea;
-            color: white;
+        .main-content {
+            background: white;
+            margin-top: 0;
+            border-radius: 0;
+            position: relative;
+            z-index: 1;
+            padding-top: 2rem;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .section {
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 15px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            padding: 3rem 2rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section:last-child {
+            border-bottom: none;
         }
 
         .section h2 {
             color: #2c3e50;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            font-weight: 300;
         }
 
-        .project-grid {
+        .section h2::after {
+            content: '';
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            color: #555;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, rgba(255, 107, 107, 0.2) 0%, rgba(78, 205, 196, 0.2) 100%);
+            padding: 0.2rem 0.4rem;
+            border-radius: 5px;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
-            margin-top: 1.5rem;
+            margin-top: 2rem;
         }
 
         .project-card {
             background: #f8f9fa;
             border-radius: 10px;
-            padding: 1.5rem;
-            border-left: 4px solid #667eea;
+            padding: 0;
+            border-top: 4px solid #ff6b6b;
             transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
+        }
+
+        .project-card.fms-project {
+            display: block;
+        }
+
+        .project-images-header {
+            position: relative;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            overflow: hidden;
+        }
+
+        .project-image {
+            position: absolute;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-image:nth-child(1) {
+            width: 180px;
+            height: 120px;
+            top: 30px;
+            left: -20px;
+            transform: rotate(-8deg);
+            z-index: 3;
+        }
+
+        .project-image:nth-child(2) {
+            width: 180px;
+            height: 120px;
+            top: 50px;
+            left: 120px;
+            transform: rotate(-8deg);
+            z-index: 2;
+        }
+
+        .project-image:nth-child(3) {
+            width: 180px;
+            height: 120px;
+            top: 70px;
+            right: -30px;
+            transform: rotate(-8deg);
+            z-index: 1;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-card.fms-project:hover .project-image {
+            transform: rotate(-5deg) scale(1.05);
+        }
+
+        .project-card.fms-project:hover .project-image img {
+            transform: scale(1.1);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(255, 107, 107, 0.05) 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover::before {
+            opacity: 1;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            border-top-color: #4ecdc4;
         }
 
         .project-title {
             color: #2c3e50;
             margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            font-weight: 600;
         }
 
         .project-date {
-            color: #7f8c8d;
+            color: #ff6b6b;
             font-size: 0.9rem;
             margin-bottom: 1rem;
+            font-weight: 500;
         }
 
         .project-tech {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
         }
 
         .tech-tag {
-            background: #667eea;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
             color: white;
-            padding: 0.2rem 0.8rem;
+            padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
+            font-weight: 500;
         }
 
         .download-btn {
-            background: #27ae60;
+            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
             color: white;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
             border: none;
-            border-radius: 5px;
+            border-radius: 25px;
             text-decoration: none;
             display: inline-block;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             transition: all 0.3s ease;
-            cursor: pointer;
+            font-weight: 500;
         }
 
         .download-btn:hover {
-            background: #229954;
             transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
         }
 
         .publication {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
             color: white;
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 1.5rem 0;
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin: 2rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 70% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+        }
+
+        .publication-content {
+            position: relative;
+            z-index: 1;
         }
 
         .publication h3 {
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            color: #ff6b6b;
         }
 
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .skill-category {
             background: #f8f9fa;
-            padding: 1.5rem;
-            border-radius: 10px;
-            border-top: 4px solid #667eea;
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #4ecdc4;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            border-left-color: #ff6b6b;
         }
 
         .skill-category h3 {
             color: #2c3e50;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
         }
 
         .skill-list {
@@ -236,18 +393,85 @@
         }
 
         .skill-list li {
-            padding: 0.3rem 0;
+            padding: 0.5rem 0;
             border-bottom: 1px solid #ecf0f1;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .skill-list li:hover {
+            color: #ff6b6b;
         }
 
         .skill-list li:last-child {
             border-bottom: none;
         }
 
-        footer {
-            text-align: center;
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .award-card {
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            border-radius: 15px;
             padding: 2rem;
-            color: rgba(255, 255, 255, 0.8);
+            border: 2px solid transparent;
+            background-clip: padding-box;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .award-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            border-radius: 15px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .award-card:hover::before {
+            opacity: 1;
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-title {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .award-date {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 0;
+            border-radius: 100px 100px 0 0;
+        }
+
+        footer p {
+            opacity: 0.8;
+            margin-bottom: 0.5rem;
         }
 
         @media (max-width: 768px) {
@@ -255,221 +479,281 @@
                 padding: 10px;
             }
             
-            nav ul {
-                gap: 1rem;
+            header {
+                padding: 2rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
             }
             
             .contact-links {
                 gap: 1rem;
             }
             
-            .project-grid {
+            .projects-grid,
+            .awards-grid {
                 grid-template-columns: 1fr;
             }
             
-            h1 {
-                font-size: 2rem;
+            .section {
+                padding: 2rem 1rem;
+            }
+
+            .main-content {
+                margin-top: -30px;
+                padding-top: 50px;
             }
         }
 
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            text-align: justify;
+        .floating-elements {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 1;
         }
 
-        .highlight {
-            background: linear-gradient(120deg, #667eea 0%, transparent 100%);
-            padding: 0.2rem 0.4rem;
-            border-radius: 5px;
-            color: white;
-            font-weight: 500;
+        .floating-shape {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(1) {
+            width: 60px;
+            height: 60px;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .floating-shape:nth-child(2) {
+            width: 40px;
+            height: 40px;
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+        }
+
+        .floating-shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            top: 40%;
+            right: 5%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <div class="profile-img">AF</div>
-            <h1>Angelo Foggetti</h1>
-            <div class="subtitle">Management Engineer | Advanced Manufacturing & AI</div>
-            <p>Graduated with 110/110 cum laude and special mention</p>
-            <div class="contact-links">
-                <a href="mailto:angelofoggetti@gmail.com">✉️ Email</a>
-                <a href="https://www.linkedin.com/in/angelo-foggetti-34b221262/" target="_blank">💼 LinkedIn</a>
-                <a href="tel:+393279312223">📞 Phone</a>
+            <div class="floating-elements">
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+                <div class="floating-shape"></div>
+            </div>
+            
+            <div class="profile-section">
+                <div class="profile-img">AF</div>
+                <h1>Angelo Foggetti</h1>
+                <div class="subtitle">Management Engineer</div>
+                <p class="hero-description">
+                    Advanced Manufacturing & AI specialist with <span class="highlight">110/110 cum laude</span> graduation and special mention. 
+                    Focused on optimization, production process management, and AI-based solutions.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:angelofoggetti@gmail.com">Email</a>
+                    <a href="https://www.linkedin.com/in/angelo-foggetti-34b221262/" target="_blank">LinkedIn</a>
+                    <a href="tel:+393279312223">Phone</a>
+                </div>
             </div>
         </header>
 
-        <nav>
-            <ul>
-                <li><a href="#about" class="active">About</a></li>
-                <li><a href="#projects">Academic Projects</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#awards">Awards</a></li>
-            </ul>
-        </nav>
+        <div class="main-content">
+            <section id="about" class="section">
+                <h2>About Me</h2>
+                <div class="about-text">
+                    <p>Graduated in <span class="highlight">Management Engineering</span> with a curriculum in Advanced Manufacturing and Operations Management, I have developed skills in <span class="highlight">optimization and production process management</span>, with a strong interest in <span class="highlight">data analysis and Artificial Intelligence-based solutions</span>.</p>
+                    
+                    <p style="margin-top: 1.5rem;">Throughout my academic journey, I explored these areas from both theoretical and practical perspectives, consolidating a strong interest in industrial research and a clear inclination toward the management of technological projects. This experience has strengthened my motivation to operate within the industrial sector, a dynamic and stimulating environment where I can apply an engineering-driven approach focused on <span class="highlight">efficiency, innovation, and advanced decision-making</span>.</p>
+                </div>
+            </section>
 
-        <section id="about" class="section">
-            <h2>About Me</h2>
-            <div class="about-text">
-                <p>Graduated in <span class="highlight">Management Engineering</span> with a curriculum in Advanced Manufacturing and Operations Management, I have developed skills in <span class="highlight">optimization and production process management</span>, with a strong interest in <span class="highlight">data analysis and Artificial Intelligence-based solutions</span>.</p>
-                
-                <p style="margin-top: 1rem;">Throughout my academic journey, I explored these areas from both theoretical and practical perspectives, consolidating a strong interest in industrial research and a clear inclination toward the management of technological projects. This experience has strengthened my motivation to operate within the industrial sector, a dynamic and stimulating environment where I can apply an engineering-driven approach focused on <span class="highlight">efficiency, innovation, and advanced decision-making</span>.</p>
-            </div>
-        </section>
-
-        <section id="projects" class="section">
-            <h2>Academic Projects</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
-                    <div class="project-date">April 2025 | Master's Thesis</div>
-                    <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Optuna</span>
-                        <span class="tech-tag">Genetic Algorithms</span>
-                        <span class="tech-tag">Bayesian Optimization</span>
+            <section id="projects" class="section">
+                <h2>Academic Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
+                        <div class="project-date">April 2025 | Master's Thesis</div>
+                        <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Optuna</span>
+                            <span class="tech-tag">Genetic Algorithms</span>
+                            <span class="tech-tag">Bayesian Optimization</span>
+                        </div>
+                        <a href="#" class="download-btn">Download PDF</a>
                     </div>
-                    <a href="#" class="download-btn">📄 Download PDF</a>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
-                    <div class="project-date">January 2025 | Energy Management</div>
-                    <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Energy Analysis</span>
-                        <span class="tech-tag">UNI Standards</span>
-                        <span class="tech-tag">Efficiency Optimization</span>
+                    <div class="project-card">
+                        <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
+                        <div class="project-date">January 2025 | Energy Management</div>
+                        <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Energy Analysis</span>
+                            <span class="tech-tag">UNI Standards</span>
+                            <span class="tech-tag">Efficiency Optimization</span>
+                        </div>
+                        <a href="#" class="download-btn">Download PDF</a>
                     </div>
-                    <a href="#" class="download-btn">📄 Download PDF</a>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Production Scheduling Optimization in MATLAB</h3>
-                    <div class="project-date">July 2024 | Production Management</div>
-                    <p>Advanced MATLAB algorithm for optimal scheduling on single and parallel machines with constraints. Features Gantt chart visualizations and comprehensive KPI analysis.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MATLAB</span>
-                        <span class="tech-tag">Scheduling Algorithms</span>
-                        <span class="tech-tag">Optimization</span>
-                        <span class="tech-tag">Gantt Charts</span>
+                    <div class="project-card">
+                        <h3 class="project-title">Production Scheduling Optimization in MATLAB</h3>
+                        <div class="project-date">July 2024 | Production Management</div>
+                        <p>Advanced MATLAB algorithm for optimal scheduling on single and parallel machines with constraints. Features Gantt chart visualizations and comprehensive KPI analysis.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">MATLAB</span>
+                            <span class="tech-tag">Scheduling Algorithms</span>
+                            <span class="tech-tag">Optimization</span>
+                            <span class="tech-tag">Gantt Charts</span>
+                        </div>
+                        <a href="#" class="download-btn">Download PDF</a>
                     </div>
-                    <a href="#" class="download-btn">📄 Download PDF</a>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">Robotized Flexible Manufacturing System Design</h3>
-                    <div class="project-date">January 2024 | Robotized Manufacturing</div>
-                    <p>Complete FMS configuration for aluminum shell production with robotics simulation. Integrated Webots simulation with Autodesk Fusion 360 modeling and machining cycles.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Webots</span>
-                        <span class="tech-tag">Autodesk Fusion 360</span>
-                        <span class="tech-tag">FMS Design</span>
-                        <span class="tech-tag">Robotics</span>
+                    <div class="project-card fms-project">
+                        <div class="project-images-header">
+                            <div class="project-image">
+                                <img src="images/fms_01.jpg" alt="FMS Design Screenshot 1">
+                            </div>
+                            <div class="project-image">
+                                <img src="images/fms_02.jpg" alt="FMS Design Screenshot 2">
+                            </div>
+                            <div class="project-image">
+                                <img src="images/fms_01.jpg" alt="FMS Design Screenshot 3">
+                            </div>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Robotized Flexible Manufacturing System Design</h3>
+                            <div class="project-date">January 2024 | Robotized Manufacturing</div>
+                            <p>Complete FMS configuration for aluminum shell production with robotics simulation. Integrated Webots simulation with Autodesk Fusion 360 modeling and machining cycles.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Webots</span>
+                                <span class="tech-tag">Autodesk Fusion 360</span>
+                                <span class="tech-tag">FMS Design</span>
+                                <span class="tech-tag">Robotics</span>
+                            </div>
+                            <a href="projects/fms-deisgn.pdf" class="download-btn">Download PDF</a>
+                        </div>
                     </div>
-                    <a href="projects/fms-deisgn.pdf" class="download-btn">📄 Download PDF</a>
-                </div>
 
-                <div class="project-card">
-                    <h3 class="project-title">PNRR Database Development</h3>
-                    <div class="project-date">December 2022 | Data Management</div>
-                    <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">MySQL</span>
-                        <span class="tech-tag">Database Design</span>
-                        <span class="tech-tag">EER Modeling</span>
-                        <span class="tech-tag">SQL</span>
-                    </div>
-                    <a href="#" class="download-btn">📄 Download PDF</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications" class="section">
-            <h2>Scientific Publications</h2>
-            <div class="publication">
-                <h3>Tuning Metaheuristics with Tree-Structured Parzen Estimator: A Case Study on Scheduling</h3>
-                <p><strong>Authors:</strong> Foggetti A., Nucci F., Papadia G.</p>
-                <p><strong>Journal:</strong> Journal of Artificial Intelligence and Autonomous Intelligence</p>
-                <p><strong>Status:</strong> Accepted for publication (May 9, 2025)</p>
-                <p><strong>ISSN:</strong> 3049-2297</p>
-                <p style="margin-top: 1rem;"><strong>Abstract:</strong> This research presents an innovative approach to parameter tuning in metaheuristic algorithms using Tree-Structured Parzen Estimator (TPE). The methodology demonstrates significant improvements in optimization performance through intelligent, data-driven parameter selection.</p>
-                <a href="#" class="download-btn">📄 Download Paper</a>
-            </div>
-        </section>
-
-        <section id="skills" class="section">
-            <h2>Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming & Analysis</h3>
-                    <ul class="skill-list">
-                        <li>Python (AI, ML, Data Analysis)</li>
-                        <li>MATLAB (Algorithm Development)</li>
-                        <li>MySQL (Database Design)</li>
-                        <li>SQL (Advanced Queries)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Design & Simulation</h3>
-                    <ul class="skill-list">
-                        <li>Autodesk Fusion 360</li>
-                        <li>Webots (Robotics Simulation)</li>
-                        <li>CAM Programming</li>
-                        <li>3D Modeling</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>AI & Machine Learning</h3>
-                    <ul class="skill-list">
-                        <li>Metaheuristics Development</li>
-                        <li>Bayesian Optimization</li>
-                        <li>Genetic Algorithms</li>
-                        <li>Parameter Tuning (Optuna)</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Industrial Engineering</h3>
-                    <ul class="skill-list">
-                        <li>Production Scheduling</li>
-                        <li>FMS Design</li>
-                        <li>Energy Management</li>
-                        <li>Process Optimization</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="awards" class="section">
-            <h2>Awards & Recognition</h2>
-            <div class="project-grid">
-                <div class="project-card">
-                    <h3 class="project-title">1st Place - PMI SIC Challenge 2022/2023</h3>
-                    <div class="project-date">January 2023</div>
-                    <p><strong>"Open your Wind"</strong> - Project focused on ecological transition and sustainability, promoting circular economy practices for Southern Italy development.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Project Management</span>
-                        <span class="tech-tag">Sustainability</span>
-                        <span class="tech-tag">Circular Economy</span>
+                    <div class="project-card">
+                        <h3 class="project-title">PNRR Database Development</h3>
+                        <div class="project-date">December 2022 | Data Management</div>
+                        <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Database Design</span>
+                            <span class="tech-tag">EER Modeling</span>
+                            <span class="tech-tag">SQL</span>
+                        </div>
+                        <a href="#" class="download-btn">Download PDF</a>
                     </div>
                 </div>
+            </section>
 
-                <div class="project-card">
-                    <h3 class="project-title">2nd Place - CREATIVE@HUBs Competition</h3>
-                    <div class="project-date">June 2023</div>
-                    <p><strong>"E.D.Re.F."</strong> - Innovative circular economy model for the agri-food sector with comprehensive business plan and environmental analysis.</p>
-                    <div class="project-tech">
-                        <span class="tech-tag">Business Planning</span>
-                        <span class="tech-tag">PEST Analysis</span>
-                        <span class="tech-tag">Agri-Food</span>
+            <section id="publications" class="section">
+                <h2>Scientific Publications</h2>
+                <div class="publication">
+                    <div class="publication-content">
+                        <h3>Tuning Metaheuristics with Tree-Structured Parzen Estimator: A Case Study on Scheduling</h3>
+                        <p><strong>Authors:</strong> Foggetti A., Nucci F., Papadia G.</p>
+                        <p><strong>Journal:</strong> Journal of Artificial Intelligence and Autonomous Intelligence</p>
+                        <p><strong>Status:</strong> Accepted for publication (May 9, 2025)</p>
+                        <p><strong>ISSN:</strong> 3049-2297</p>
+                        <p style="margin-top: 1.5rem;"><strong>Abstract:</strong> This research presents an innovative approach to parameter tuning in metaheuristic algorithms using Tree-Structured Parzen Estimator (TPE). The methodology demonstrates significant improvements in optimization performance through intelligent, data-driven parameter selection.</p>
+                        <a href="#" class="download-btn">Download Paper</a>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+
+            <section id="skills" class="section">
+                <h2>Technical Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Programming & Analysis</h3>
+                        <ul class="skill-list">
+                            <li>Python (AI, ML, Data Analysis)</li>
+                            <li>MATLAB (Algorithm Development)</li>
+                            <li>MySQL (Database Design)</li>
+                            <li>SQL (Advanced Queries)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Design & Simulation</h3>
+                        <ul class="skill-list">
+                            <li>Autodesk Fusion 360</li>
+                            <li>Webots (Robotics Simulation)</li>
+                            <li>CAM Programming</li>
+                            <li>3D Modeling</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>AI & Machine Learning</h3>
+                        <ul class="skill-list">
+                            <li>Metaheuristics Development</li>
+                            <li>Bayesian Optimization</li>
+                            <li>Genetic Algorithms</li>
+                            <li>Parameter Tuning (Optuna)</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Industrial Engineering</h3>
+                        <ul class="skill-list">
+                            <li>Production Scheduling</li>
+                            <li>FMS Design</li>
+                            <li>Energy Management</li>
+                            <li>Process Optimization</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="awards" class="section">
+                <h2>Awards & Recognition</h2>
+                <div class="awards-grid">
+                    <div class="award-card">
+                        <h3 class="award-title">1st Place - PMI SIC Challenge 2022/2023</h3>
+                        <div class="award-date">January 2023</div>
+                        <p><strong>"Open your Wind"</strong> - Project focused on ecological transition and sustainability, promoting circular economy practices for Southern Italy development.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Project Management</span>
+                            <span class="tech-tag">Sustainability</span>
+                            <span class="tech-tag">Circular Economy</span>
+                        </div>
+                    </div>
+
+                    <div class="award-card">
+                        <h3 class="award-title">2nd Place - CREATIVE@HUBs Competition</h3>
+                        <div class="award-date">June 2023</div>
+                        <p><strong>"E.D.Re.F."</strong> - Innovative circular economy model for the agri-food sector with comprehensive business plan and environmental analysis.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Business Planning</span>
+                            <span class="tech-tag">PEST Analysis</span>
+                            <span class="tech-tag">Agri-Food</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
 
         <footer>
             <p>&copy; 2025 Angelo Foggetti. All rights reserved.</p>
@@ -478,37 +762,44 @@
     </div>
 
     <script>
-        // Smooth scrolling for navigation links
-        document.querySelectorAll('nav a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                target.scrollIntoView({
-                    behavior: 'smooth'
-                });
-                
-                // Update active class
-                document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
-                this.classList.add('active');
+        // Add parallax effect to floating shapes
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.floating-shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = 0.5 + (index * 0.2);
+                const yPos = -(scrolled * speed);
+                shape.style.transform = `translateY(${yPos}px)`;
             });
         });
 
-        // Add scroll effect to update active navigation
-        window.addEventListener('scroll', () => {
-            let current = '';
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                if (pageYOffset >= sectionTop - 60) {
-                    current = section.getAttribute('id');
-                }
-            });
+        // Add smooth reveal animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            document.querySelectorAll('nav a').forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href') === '#' + current) {
-                    a.classList.add('active');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
                 }
             });
+        }, observerOptions);
+
+        // Observe all cards and sections
+        document.querySelectorAll('.project-card, .skill-category, .award-card, .section').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Staggered animation for project cards
+        document.querySelectorAll('.project-card').forEach((card, index) => {
+            card.style.transitionDelay = `${index * 0.1}s`;
         });
     </script>
 </body>
