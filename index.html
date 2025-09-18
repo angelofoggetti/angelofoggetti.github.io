@@ -191,12 +191,8 @@
             border-top: 4px solid #ff6b6b;
             transition: all 0.3s ease;
             position: relative;
-            overflow: hidden;
-        }
-
-        .project-card.fms-project {
-            display: block;
             overflow: visible;
+            display: block;
         }
 
         .project-images-header {
@@ -584,44 +580,74 @@
                 <h2>Academic Projects</h2>
                 <div class="projects-grid">
                     <div class="project-card">
-                        <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
-                        <div class="project-date">April 2025 | Master's Thesis</div>
-                        <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Optuna</span>
-                            <span class="tech-tag">Genetic Algorithms</span>
-                            <span class="tech-tag">Bayesian Optimization</span>
+                        <div class="project-images-header">
+                            <div class="project-image">
+                                <img src="images/tpe_01.jpg" alt="TPE Algorithm Screenshot 1">
+                            </div>
+                            <div class="project-image">
+                                <img src="images/tpe_02.jpg" alt="TPE Algorithm Screenshot 2">
+                            </div>
                         </div>
-                        <a href="#" class="download-btn">Download PDF</a>
+                        <div class="project-content">
+                            <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
+                            <div class="project-date">April 2025 | Master's Thesis</div>
+                            <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Python</span>
+                                <span class="tech-tag">Optuna</span>
+                                <span class="tech-tag">Genetic Algorithms</span>
+                                <span class="tech-tag">Bayesian Optimization</span>
+                            </div>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
                     </div>
 
                     <div class="project-card">
-                        <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
-                        <div class="project-date">January 2025 | Energy Management</div>
-                        <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Energy Analysis</span>
-                            <span class="tech-tag">UNI Standards</span>
-                            <span class="tech-tag">Efficiency Optimization</span>
+                        <div class="project-images-header">
+                            <div class="project-image">
+                                <img src="images/energy_01.jpg" alt="Energy Audit Screenshot 1">
+                            </div>
+                            <div class="project-image">
+                                <img src="images/energy_02.jpg" alt="Energy Audit Screenshot 2">
+                            </div>
                         </div>
-                        <a href="#" class="download-btn">Download PDF</a>
+                        <div class="project-content">
+                            <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
+                            <div class="project-date">January 2025 | Energy Management</div>
+                            <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Energy Analysis</span>
+                                <span class="tech-tag">UNI Standards</span>
+                                <span class="tech-tag">Efficiency Optimization</span>
+                            </div>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
                     </div>
 
                     <div class="project-card">
-                        <h3 class="project-title">Production Scheduling Optimization in MATLAB</h3>
-                        <div class="project-date">July 2024 | Production Management</div>
-                        <p>Advanced MATLAB algorithm for optimal scheduling on single and parallel machines with constraints. Features Gantt chart visualizations and comprehensive KPI analysis.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">MATLAB</span>
-                            <span class="tech-tag">Scheduling Algorithms</span>
-                            <span class="tech-tag">Optimization</span>
-                            <span class="tech-tag">Gantt Charts</span>
+                        <div class="project-images-header">
+                            <div class="project-image">
+                                <img src="images/matlab_01.jpg" alt="MATLAB Scheduling Screenshot 1">
+                            </div>
+                            <div class="project-image">
+                                <img src="images/matlab_02.jpg" alt="MATLAB Scheduling Screenshot 2">
+                            </div>
                         </div>
-                        <a href="#" class="download-btn">Download PDF</a>
+                        <div class="project-content">
+                            <h3 class="project-title">Production Scheduling Optimization in MATLAB</h3>
+                            <div class="project-date">July 2024 | Production Management</div>
+                            <p>Advanced MATLAB algorithm for optimal scheduling on single and parallel machines with constraints. Features Gantt chart visualizations and comprehensive KPI analysis.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">MATLAB</span>
+                                <span class="tech-tag">Scheduling Algorithms</span>
+                                <span class="tech-tag">Optimization</span>
+                                <span class="tech-tag">Gantt Charts</span>
+                            </div>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
                     </div>
 
-                    <div class="project-card fms-project">
+                    <div class="project-card">
                         <div class="project-images-header">
                             <div class="project-image">
                                 <img src="images/fms_01.jpg" alt="FMS Design Screenshot 1">
@@ -645,16 +671,26 @@
                     </div>
 
                     <div class="project-card">
-                        <h3 class="project-title">PNRR Database Development</h3>
-                        <div class="project-date">December 2022 | Data Management</div>
-                        <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Database Design</span>
-                            <span class="tech-tag">EER Modeling</span>
-                            <span class="tech-tag">SQL</span>
+                        <div class="project-images-header">
+                            <div class="project-image">
+                                <img src="images/pnrr_01.jpg" alt="PNRR Database Screenshot 1">
+                            </div>
+                            <div class="project-image">
+                                <img src="images/pnrr_02.jpg" alt="PNRR Database Screenshot 2">
+                            </div>
                         </div>
-                        <a href="#" class="download-btn">Download PDF</a>
+                        <div class="project-content">
+                            <h3 class="project-title">PNRR Database Development</h3>
+                            <div class="project-date">December 2022 | Data Management</div>
+                            <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">MySQL</span>
+                                <span class="tech-tag">Database Design</span>
+                                <span class="tech-tag">EER Modeling</span>
+                                <span class="tech-tag">SQL</span>
+                            </div>
+                            <a href="#" class="download-btn">Download PDF</a>
+                        </div>
                     </div>
                 </div>
             </section>
