@@ -21,6 +21,73 @@
             padding: 0;
         }
 
+        /* NAVBAR MIGLIORATA - HOVER SEMPLIFICATO */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.8rem 2rem;
+            transition: all 0.3s ease;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar.scrolled {
+            background: white;
+            border-bottom: 1px solid #eee;
+        }
+
+        .navbar-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-links {
+            background: rgba(44, 62, 80, 0.05);
+        }
+
+        .navbar-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            transition: font-weight 0.2s ease;
+            font-size: 1rem;
+        }
+
+        .navbar-links a:hover {
+            font-weight: 700; /* Solo grassetto al hover */
+        }
+
+        .navbar.scrolled .navbar-links a {
+            color: #2c3e50;
+        }
+
+        .navbar.scrolled .navbar-links a:hover {
+            font-weight: 700; /* Solo grassetto al hover anche quando scrolled */
+        }
+
+        /* Smooth scroll per i link interni */
+        html {
+            scroll-behavior: smooth;
+        }
+
         .container {
             margin: 0;
             padding: 0;
@@ -29,9 +96,8 @@
 
         header {
             background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            backdrop-filter: blur(10px);
             border-radius: 0 0 100px 100px;
-            padding: 3rem 2rem 4rem 2rem;
+            padding: 6rem 2rem 4rem 2rem; /* Aumentato ulteriormente per evitare sovrapposizione */
             margin-bottom: 0;
             color: white;
             text-align: center;
@@ -94,6 +160,7 @@
             margin-right: auto;
         }
 
+        /* CONTACT LINKS - HOVER SEMPLIFICATO */
         .contact-links {
             display: flex;
             justify-content: center;
@@ -109,14 +176,12 @@
             padding: 12px 24px;
             border: 2px solid rgba(255, 255, 255, 0.3);
             border-radius: 25px;
-            transition: all 0.3s ease;
+            transition: font-weight 0.2s ease;
             backdrop-filter: blur(5px);
         }
 
         .contact-links a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: #ff6b6b;
-            transform: translateY(-2px);
+            font-weight: 700; /* Solo grassetto al hover */
         }
 
         .main-content {
@@ -126,6 +191,9 @@
             position: relative;
             z-index: 1;
             padding-top: 2rem;
+        }
+
+        .content-wrapper {
             max-width: 1200px;
             margin-left: auto;
             margin-right: auto;
@@ -170,9 +238,6 @@
         }
 
         .highlight {
-            background: linear-gradient(120deg, rgba(255, 107, 107, 0.2) 0%, rgba(78, 205, 196, 0.2) 100%);
-            padding: 0.2rem 0.4rem;
-            border-radius: 5px;
             font-weight: 600;
             color: #2c3e50;
         }
@@ -184,15 +249,17 @@
             margin-top: 2rem;
         }
 
+        /* MODIFICHE AI PROJECT CARDS - BORDO UNIFORME E RIMOZIONE OMBRE */
         .project-card {
             background: #f8f9fa;
             border-radius: 10px;
             padding: 0;
-            border-top: 4px solid #ff6b6b;
+            border: 1px solid #eee; /* BORDO UNIFORME */
             transition: all 0.3s ease;
             position: relative;
             overflow: visible;
             display: block;
+            /* RIMOSSA BOX-SHADOW */
         }
 
         .project-images-header {
@@ -204,12 +271,14 @@
             border-radius: 10px 10px 0 0;
         }
 
+        /* MODIFICHE ALLE IMMAGINI - NUOVA ANIMAZIONE */
         .project-image {
             position: absolute;
             border-radius: 8px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+            /* RIMOSSA BOX-SHADOW */
             overflow: hidden;
             z-index: 10;
+            transition: all 0.4s ease; /* Transizione più fluida */
         }
 
         .project-image img {
@@ -234,6 +303,15 @@
             right: 50px;
             transform: rotate(8deg);
             z-index: 11;
+        }
+
+        /* NUOVA ANIMAZIONE HOVER - IMMAGINI PARALLELE */
+        .project-card:hover .project-image:nth-child(1) {
+            transform: rotate(0deg) translateX(-10px);
+        }
+
+        .project-card:hover .project-image:nth-child(2) {
+            transform: rotate(0deg) translateX(10px);
         }
 
         .project-image:nth-child(3) {
@@ -265,8 +343,7 @@
 
         .project-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border-top-color: #4ecdc4;
+            /* RIMOSSA BOX-SHADOW */
         }
 
         .project-title {
@@ -348,19 +425,44 @@
             color: #ff6b6b;
         }
 
+        /* MODIFICHE PER LA SEZIONE SKILLS - ALLINEAMENTO PERFETTO */
+        #skills {
+            background: #f8f9fa;
+            margin: 0;
+            padding: 3rem 0;
+            border-bottom: 1px solid #eee;
+            border-radius: 0;
+            width: 100vw;
+            position: relative;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        #skills .section-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 2rem;
             margin-top: 2rem;
+            align-items: start;
         }
 
         .skill-category {
-            background: #f8f9fa;
+            background: white;
             padding: 2rem;
             border-radius: 15px;
             border-left: 4px solid #4ecdc4;
             transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
 
         .skill-category:hover {
@@ -369,22 +471,37 @@
             border-left-color: #ff6b6b;
         }
 
+        /* ALTEZZA FISSA PER I TITOLI - ALLINEAMENTO PERFETTO */
         .skill-category h3 {
             color: #2c3e50;
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
             font-weight: 600;
+            height: 60px; /* Altezza fissa per tutti i titoli */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.4;
         }
 
         .skill-list {
             list-style: none;
+            flex-grow: 1;
         }
 
+        /* ALTEZZA FISSA PER OGNI VOCE DELL'ELENCO - ALLINEAMENTO PERFETTO */
         .skill-list li {
-            padding: 0.5rem 0;
+            padding: 0;
             border-bottom: 1px solid #ecf0f1;
             color: #555;
             transition: color 0.3s ease;
+            height: 70px; /* Altezza fissa per tutte le voci */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            line-height: 1.4;
         }
 
         .skill-list li:hover {
@@ -462,7 +579,31 @@
             margin-bottom: 0.5rem;
         }
 
+        @media (max-width: 1200px) {
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
         @media (max-width: 768px) {
+            .navbar {
+                padding: 0.7rem 1rem;
+            }
+
+            .navbar-links {
+                padding: 0.3rem;
+                gap: 0;
+            }
+
+            .navbar-links a {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.9rem;
+            }
+
+            header {
+                padding: 5rem 1rem 3rem 1rem; /* Aggiustato per mobile */
+            }
+
             .container {
                 padding: 10px;
             }
@@ -492,64 +633,44 @@
                 margin-top: -30px;
                 padding-top: 50px;
             }
-        }
 
-        .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            pointer-events: none;
-            z-index: 1;
-        }
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            #skills .section-content {
+                padding: 0 1rem;
+            }
 
-        .floating-shape {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
+            /* Su mobile, riduci leggermente le altezze fisse per ottimizzare lo spazio */
+            .skill-category h3 {
+                height: 50px;
+                font-size: 1.1rem;
+            }
 
-        .floating-shape:nth-child(1) {
-            width: 60px;
-            height: 60px;
-            top: 20%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .floating-shape:nth-child(2) {
-            width: 40px;
-            height: 40px;
-            top: 60%;
-            right: 15%;
-            animation-delay: 2s;
-        }
-
-        .floating-shape:nth-child(3) {
-            width: 80px;
-            height: 80px;
-            top: 40%;
-            right: 5%;
-            animation-delay: 4s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            .skill-list li {
+                height: 60px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="floating-elements">
-                <div class="floating-shape"></div>
-                <div class="floating-shape"></div>
-                <div class="floating-shape"></div>
+    <!-- NAVBAR SEMPLIFICATA -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-content">
+            <div class="navbar-links">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#publications">Publications</a>
+                <a href="#skills">Skills</a>
+                <a href="#awards">Awards</a>
             </div>
-            
+        </div>
+    </nav>
+
+    <div class="container" id="top">
+        <header>
             <div class="profile-section">
                 <div class="profile-img">AF</div>
                 <h1>Angelo Foggetti</h1>
@@ -567,217 +688,223 @@
         </header>
 
         <div class="main-content">
-            <section id="about" class="section">
-                <h2>About Me</h2>
-                <div class="about-text">
-                    <p>Graduated in <span class="highlight">Management Engineering</span> with a curriculum in Advanced Manufacturing and Operations Management, I have developed skills in <span class="highlight">optimization and production process management</span>, with a strong interest in <span class="highlight">data analysis and Artificial Intelligence-based solutions</span>.</p>
-                    
-                    <p style="margin-top: 1.5rem;">Throughout my academic journey, I explored these areas from both theoretical and practical perspectives, consolidating a strong interest in industrial research and a clear inclination toward the management of technological projects. This experience has strengthened my motivation to operate within the industrial sector, a dynamic and stimulating environment where I can apply an engineering-driven approach focused on <span class="highlight">efficiency, innovation, and advanced decision-making</span>.</p>
-                </div>
-            </section>
+            <div class="content-wrapper">
+                <section id="about" class="section">
+                    <h2>About Me</h2>
+                    <div class="about-text">
+                        <p>Graduated in <span class="highlight">Management Engineering</span> with a curriculum in Advanced Manufacturing and Operations Management, I have developed skills in <span class="highlight">optimization and production process management</span>, with a strong interest in <span class="highlight">data analysis and Artificial Intelligence-based solutions</span>.</p>
+                        
+                        <p style="margin-top: 1.5rem;">Throughout my academic journey, I explored these areas from both theoretical and practical perspectives, consolidating a strong interest in industrial research and a clear inclination toward the management of technological projects. This experience has strengthened my motivation to operate within the industrial sector, a dynamic and stimulating environment where I can apply an engineering-driven approach focused on <span class="highlight">efficiency, innovation, and advanced decision-making</span>.</p>
+                    </div>
+                </section>
 
-            <section id="projects" class="section">
-                <h2>Academic Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <div class="project-images-header">
-                            <div class="project-image">
-                                <img src="images/tpe_01.jpg" alt="TPE Algorithm Screenshot 1">
+                <section id="projects" class="section">
+                    <h2>Academic Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-images-header">
+                                <div class="project-image">
+                                    <img src="images/tpe_01.jpg" alt="TPE Algorithm Screenshot 1">
+                                </div>
+                                <div class="project-image">
+                                    <img src="images/tpe_02.jpg" alt="TPE Algorithm Screenshot 2">
+                                </div>
                             </div>
-                            <div class="project-image">
-                                <img src="images/tpe_02.jpg" alt="TPE Algorithm Screenshot 2">
+                            <div class="project-content">
+                                <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
+                                <div class="project-date">April 2025 | Master's Thesis</div>
+                                <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Python</span>
+                                    <span class="tech-tag">Optuna</span>
+                                    <span class="tech-tag">Genetic Algorithms</span>
+                                    <span class="tech-tag">Bayesian Optimization</span>
+                                </div>
+                                <a href="#" class="download-btn">Download PDF</a>
                             </div>
                         </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
-                            <div class="project-date">April 2025 | Master's Thesis</div>
-                            <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Python</span>
-                                <span class="tech-tag">Optuna</span>
-                                <span class="tech-tag">Genetic Algorithms</span>
-                                <span class="tech-tag">Bayesian Optimization</span>
+
+                        <div class="project-card">
+                            <div class="project-images-header">
+                                <div class="project-image">
+                                    <img src="images/energy_01.jpg" alt="Energy Audit Screenshot 1">
+                                </div>
+                                <div class="project-image">
+                                    <img src="images/energy_02.jpg" alt="Energy Audit Screenshot 2">
+                                </div>
                             </div>
-                            <a href="#" class="download-btn">Download PDF</a>
+                            <div class="project-content">
+                                <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
+                                <div class="project-date">January 2025 | Energy Management</div>
+                                <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Energy Analysis</span>
+                                    <span class="tech-tag">UNI Standards</span>
+                                    <span class="tech-tag">Efficiency Optimization</span>
+                                </div>
+                                <a href="#" class="download-btn">Download PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-images-header">
+                                <div class="project-image">
+                                    <img src="images/matlab_01.jpg" alt="MATLAB Scheduling Screenshot 1">
+                                </div>
+                                <div class="project-image">
+                                    <img src="images/matlab_02.jpg" alt="MATLAB Scheduling Screenshot 2">
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Production Scheduling Optimization in MATLAB</h3>
+                                <div class="project-date">July 2024 | Production Management</div>
+                                <p>Advanced MATLAB algorithm for optimal scheduling on single and parallel machines with constraints. Features Gantt chart visualizations and comprehensive KPI analysis.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">MATLAB</span>
+                                    <span class="tech-tag">Scheduling Algorithms</span>
+                                    <span class="tech-tag">Optimization</span>
+                                    <span class="tech-tag">Gantt Charts</span>
+                                </div>
+                                <a href="#" class="download-btn">Download PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-images-header">
+                                <div class="project-image">
+                                    <img src="images/fms_01.jpg" alt="FMS Design Screenshot 1">
+                                </div>
+                                <div class="project-image">
+                                    <img src="images/fms_02.jpg" alt="FMS Design Screenshot 2">
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">Robotized Flexible Manufacturing System Design</h3>
+                                <div class="project-date">January 2024 | Robotized Manufacturing</div>
+                                <p>Complete FMS configuration for aluminum shell production with robotics simulation. Integrated Webots simulation with Autodesk Fusion 360 modeling and machining cycles.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">Webots</span>
+                                    <span class="tech-tag">Autodesk Fusion 360</span>
+                                    <span class="tech-tag">FMS Design</span>
+                                    <span class="tech-tag">Robotics</span>
+                                </div>
+                                <a href="projects/fms-deisgn.pdf" class="download-btn">Download PDF</a>
+                            </div>
+                        </div>
+
+                        <div class="project-card">
+                            <div class="project-images-header">
+                                <div class="project-image">
+                                    <img src="images/pnrr_01.jpg" alt="PNRR Database Screenshot 1">
+                                </div>
+                                <div class="project-image">
+                                    <img src="images/pnrr_02.jpg" alt="PNRR Database Screenshot 2">
+                                </div>
+                            </div>
+                            <div class="project-content">
+                                <h3 class="project-title">PNRR Database Development</h3>
+                                <div class="project-date">December 2022 | Data Management</div>
+                                <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
+                                <div class="project-tech">
+                                    <span class="tech-tag">MySQL</span>
+                                    <span class="tech-tag">Database Design</span>
+                                    <span class="tech-tag">EER Modeling</span>
+                                    <span class="tech-tag">SQL</span>
+                                </div>
+                                <a href="#" class="download-btn">Download PDF</a>
+                            </div>
                         </div>
                     </div>
+                </section>
 
-                    <div class="project-card">
-                        <div class="project-images-header">
-                            <div class="project-image">
-                                <img src="images/energy_01.jpg" alt="Energy Audit Screenshot 1">
-                            </div>
-                            <div class="project-image">
-                                <img src="images/energy_02.jpg" alt="Energy Audit Screenshot 2">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
-                            <div class="project-date">January 2025 | Energy Management</div>
-                            <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Energy Analysis</span>
-                                <span class="tech-tag">UNI Standards</span>
-                                <span class="tech-tag">Efficiency Optimization</span>
-                            </div>
-                            <a href="#" class="download-btn">Download PDF</a>
+                <section id="publications" class="section">
+                    <h2>Scientific Publications</h2>
+                    <div class="publication">
+                        <div class="publication-content">
+                            <h3>Tuning Metaheuristics with Tree-Structured Parzen Estimator: A Case Study on Scheduling</h3>
+                            <p><strong>Authors:</strong> Foggetti A., Nucci F., Papadia G.</p>
+                            <p><strong>Journal:</strong> Journal of Artificial Intelligence and Autonomous Intelligence</p>
+                            <p><strong>Status:</strong> Accepted for publication (May 9, 2025)</p>
+                            <p><strong>ISSN:</strong> 3049-2297</p>
+                            <p style="margin-top: 1.5rem;"><strong>Abstract:</strong> This research presents an innovative approach to parameter tuning in metaheuristic algorithms using Tree-Structured Parzen Estimator (TPE). The methodology demonstrates significant improvements in optimization performance through intelligent, data-driven parameter selection.</p>
+                            <a href="#" class="download-btn">Download Paper</a>
                         </div>
                     </div>
-
-                    <div class="project-card">
-                        <div class="project-images-header">
-                            <div class="project-image">
-                                <img src="images/matlab_01.jpg" alt="MATLAB Scheduling Screenshot 1">
-                            </div>
-                            <div class="project-image">
-                                <img src="images/matlab_02.jpg" alt="MATLAB Scheduling Screenshot 2">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Production Scheduling Optimization in MATLAB</h3>
-                            <div class="project-date">July 2024 | Production Management</div>
-                            <p>Advanced MATLAB algorithm for optimal scheduling on single and parallel machines with constraints. Features Gantt chart visualizations and comprehensive KPI analysis.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">MATLAB</span>
-                                <span class="tech-tag">Scheduling Algorithms</span>
-                                <span class="tech-tag">Optimization</span>
-                                <span class="tech-tag">Gantt Charts</span>
-                            </div>
-                            <a href="#" class="download-btn">Download PDF</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-images-header">
-                            <div class="project-image">
-                                <img src="images/fms_01.jpg" alt="FMS Design Screenshot 1">
-                            </div>
-                            <div class="project-image">
-                                <img src="images/fms_02.jpg" alt="FMS Design Screenshot 2">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">Robotized Flexible Manufacturing System Design</h3>
-                            <div class="project-date">January 2024 | Robotized Manufacturing</div>
-                            <p>Complete FMS configuration for aluminum shell production with robotics simulation. Integrated Webots simulation with Autodesk Fusion 360 modeling and machining cycles.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">Webots</span>
-                                <span class="tech-tag">Autodesk Fusion 360</span>
-                                <span class="tech-tag">FMS Design</span>
-                                <span class="tech-tag">Robotics</span>
-                            </div>
-                            <a href="projects/fms-deisgn.pdf" class="download-btn">Download PDF</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-images-header">
-                            <div class="project-image">
-                                <img src="images/pnrr_01.jpg" alt="PNRR Database Screenshot 1">
-                            </div>
-                            <div class="project-image">
-                                <img src="images/pnrr_02.jpg" alt="PNRR Database Screenshot 2">
-                            </div>
-                        </div>
-                        <div class="project-content">
-                            <h3 class="project-title">PNRR Database Development</h3>
-                            <div class="project-date">December 2022 | Data Management</div>
-                            <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
-                            <div class="project-tech">
-                                <span class="tech-tag">MySQL</span>
-                                <span class="tech-tag">Database Design</span>
-                                <span class="tech-tag">EER Modeling</span>
-                                <span class="tech-tag">SQL</span>
-                            </div>
-                            <a href="#" class="download-btn">Download PDF</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <section id="publications" class="section">
-                <h2>Scientific Publications</h2>
-                <div class="publication">
-                    <div class="publication-content">
-                        <h3>Tuning Metaheuristics with Tree-Structured Parzen Estimator: A Case Study on Scheduling</h3>
-                        <p><strong>Authors:</strong> Foggetti A., Nucci F., Papadia G.</p>
-                        <p><strong>Journal:</strong> Journal of Artificial Intelligence and Autonomous Intelligence</p>
-                        <p><strong>Status:</strong> Accepted for publication (May 9, 2025)</p>
-                        <p><strong>ISSN:</strong> 3049-2297</p>
-                        <p style="margin-top: 1.5rem;"><strong>Abstract:</strong> This research presents an innovative approach to parameter tuning in metaheuristic algorithms using Tree-Structured Parzen Estimator (TPE). The methodology demonstrates significant improvements in optimization performance through intelligent, data-driven parameter selection.</p>
-                        <a href="#" class="download-btn">Download Paper</a>
-                    </div>
-                </div>
-            </section>
+                </section>
+            </div>
 
             <section id="skills" class="section">
-                <h2>Technical Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming & Analysis</h3>
-                        <ul class="skill-list">
-                            <li>Python (AI, ML, Data Analysis)</li>
-                            <li>MATLAB (Algorithm Development)</li>
-                            <li>MySQL (Database Design)</li>
-                            <li>SQL (Advanced Queries)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Design & Simulation</h3>
-                        <ul class="skill-list">
-                            <li>Autodesk Fusion 360</li>
-                            <li>Webots (Robotics Simulation)</li>
-                            <li>CAM Programming</li>
-                            <li>3D Modeling</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>AI & Machine Learning</h3>
-                        <ul class="skill-list">
-                            <li>Metaheuristics Development</li>
-                            <li>Bayesian Optimization</li>
-                            <li>Genetic Algorithms</li>
-                            <li>Parameter Tuning (Optuna)</li>
-                        </ul>
-                    </div>
-                    <div class="skill-category">
-                        <h3>Industrial Engineering</h3>
-                        <ul class="skill-list">
-                            <li>Production Scheduling</li>
-                            <li>FMS Design</li>
-                            <li>Energy Management</li>
-                            <li>Process Optimization</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-
-            <section id="awards" class="section">
-                <h2>Awards & Recognition</h2>
-                <div class="awards-grid">
-                    <div class="award-card">
-                        <h3 class="award-title">1st Place - PMI SIC Challenge 2022/2023</h3>
-                        <div class="award-date">January 2023</div>
-                        <p><strong>"Open your Wind"</strong> - Project focused on ecological transition and sustainability, promoting circular economy practices for Southern Italy development.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Project Management</span>
-                            <span class="tech-tag">Sustainability</span>
-                            <span class="tech-tag">Circular Economy</span>
+                <div class="section-content">
+                    <h2>Technical Skills</h2>
+                    <div class="skills-grid">
+                        <div class="skill-category">
+                            <h3>Programming & Analysis</h3>
+                            <ul class="skill-list">
+                                <li>Python (AI, ML, Data Analysis)</li>
+                                <li>MATLAB (Algorithm Development)</li>
+                                <li>MySQL (Database Design)</li>
+                                <li>SQL (Advanced Queries)</li>
+                            </ul>
                         </div>
-                    </div>
-
-                    <div class="award-card">
-                        <h3 class="award-title">2nd Place - CREATIVE@HUBs Competition</h3>
-                        <div class="award-date">June 2023</div>
-                        <p><strong>"E.D.Re.F."</strong> - Innovative circular economy model for the agri-food sector with comprehensive business plan and environmental analysis.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Business Planning</span>
-                            <span class="tech-tag">PEST Analysis</span>
-                            <span class="tech-tag">Agri-Food</span>
+                        <div class="skill-category">
+                            <h3>Design & Simulation</h3>
+                            <ul class="skill-list">
+                                <li>Autodesk Fusion 360</li>
+                                <li>Webots (Robotics Simulation)</li>
+                                <li>CAM Programming</li>
+                                <li>3D Modeling</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>AI & Machine Learning</h3>
+                            <ul class="skill-list">
+                                <li>Metaheuristics Development</li>
+                                <li>Bayesian Optimization</li>
+                                <li>Genetic Algorithms</li>
+                                <li>Parameter Tuning (Optuna)</li>
+                            </ul>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Industrial Engineering</h3>
+                            <ul class="skill-list">
+                                <li>Production Scheduling</li>
+                                <li>FMS Design</li>
+                                <li>Energy Management</li>
+                                <li>Process Optimization</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
+
+            <div class="content-wrapper">
+                <section id="awards" class="section">
+                    <h2>Awards & Recognition</h2>
+                    <div class="awards-grid">
+                        <div class="award-card">
+                            <h3 class="award-title">1st Place - PMI SIC Challenge 2022/2023</h3>
+                            <div class="award-date">January 2023</div>
+                            <p><strong>"Open your Wind"</strong> - Project focused on ecological transition and sustainability, promoting circular economy practices for Southern Italy development.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Project Management</span>
+                                <span class="tech-tag">Sustainability</span>
+                                <span class="tech-tag">Circular Economy</span>
+                            </div>
+                        </div>
+
+                        <div class="award-card">
+                            <h3 class="award-title">2nd Place - CREATIVE@HUBs Competition</h3>
+                            <div class="award-date">June 2023</div>
+                            <p><strong>"E.D.Re.F."</strong> - Innovative circular economy model for the agri-food sector with comprehensive business plan and environmental analysis.</p>
+                            <div class="project-tech">
+                                <span class="tech-tag">Business Planning</span>
+                                <span class="tech-tag">PEST Analysis</span>
+                                <span class="tech-tag">Agri-Food</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <footer>
@@ -787,16 +914,16 @@
     </div>
 
     <script>
-        // Add parallax effect to floating shapes
+        // Navbar scroll effect
         window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
             const scrolled = window.pageYOffset;
-            const shapes = document.querySelectorAll('.floating-shape');
             
-            shapes.forEach((shape, index) => {
-                const speed = 0.5 + (index * 0.2);
-                const yPos = -(scrolled * speed);
-                shape.style.transform = `translateY(${yPos}px)`;
-            });
+            if (scrolled > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
         });
 
         // Add smooth reveal animation on scroll
