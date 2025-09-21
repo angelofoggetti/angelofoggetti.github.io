@@ -14,14 +14,14 @@
         body {
             font-family: 'Lato', 'Segoe UI', sans-serif;
             line-height: 1.6;
-            color: #333;
+            color: #1e3a5f;
             background: white;
             min-height: 100vh;
             margin: 0;
             padding: 0;
         }
 
-        /* NAVBAR MIGLIORATA - HOVER SEMPLIFICATO */
+        /* NAVBAR COMPLETAMENTE TRASPARENTE IN CIMA */
         .navbar {
             position: fixed;
             top: 0;
@@ -30,13 +30,14 @@
             z-index: 1000;
             padding: 0.8rem 2rem;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            border-bottom: none;
         }
 
         .navbar.scrolled {
             background: white;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #dde7f0;
+            backdrop-filter: blur(10px);
         }
 
         .navbar-content {
@@ -45,8 +46,25 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            position: relative;
         }
 
+        .navbar-contacts {
+            display: flex;
+            gap: 0;
+            align-items: center;
+            position: absolute;
+            right: 0;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.4rem;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled .navbar-contacts {
+            background: rgba(4, 31, 58, 0.05);
+        }
+        
         .navbar-links {
             display: flex;
             gap: 0;
@@ -58,7 +76,7 @@
         }
 
         .navbar.scrolled .navbar-links {
-            background: rgba(44, 62, 80, 0.05);
+            background: rgba(4, 31, 58, 0.05);
         }
 
         .navbar-links a {
@@ -67,20 +85,47 @@
             font-weight: 500;
             padding: 0.7rem 1.2rem;
             border-radius: 25px;
-            transition: font-weight 0.2s ease;
+            transition: all 0.3s ease;
             font-size: 1rem;
         }
 
         .navbar-links a:hover {
-            font-weight: 700; /* Solo grassetto al hover */
+            font-weight: 700;
+            transform: translateY(-2px);
         }
 
         .navbar.scrolled .navbar-links a {
-            color: #2c3e50;
+            color: #041f3a;
         }
 
         .navbar.scrolled .navbar-links a:hover {
-            font-weight: 700; /* Solo grassetto al hover anche quando scrolled */
+            font-weight: 700;
+            transform: translateY(-2px);
+        }
+
+        /* NUOVI STILI PER I CONTATTI */
+        .contact-link {
+            color: white;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.7rem 1.2rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            font-weight: 700;
+            transform: translateY(-2px);
+        }
+
+        .navbar.scrolled .contact-link {
+            color: #041f3a;
+        }
+
+        .navbar.scrolled .contact-link:hover {
+            font-weight: 700;
+            transform: translateY(-2px);
         }
 
         /* Smooth scroll per i link interni */
@@ -94,27 +139,107 @@
             width: 100%;
         }
 
+        /* HEADER MIGLIORATO CON ELEMENTI GRAFICI */
         header {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: #041f3a;
             border-radius: 0 0 100px 100px;
-            padding: 6rem 2rem 4rem 2rem; /* Aumentato ulteriormente per evitare sovrapposizione */
+            padding: 8rem 2rem 6rem 2rem;
             margin-bottom: 0;
             color: white;
             text-align: center;
             position: relative;
             overflow: hidden;
             width: 100%;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
+        /* ELEMENTI DECORATIVI GEOMETRICI */
         header::before {
             content: '';
             position: absolute;
-            top: 0;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                linear-gradient(45deg, transparent 40%, rgba(96, 165, 250, 0.03) 50%, transparent 60%),
+                linear-gradient(-45deg, transparent 40%, rgba(59, 130, 246, 0.05) 50%, transparent 60%);
+            animation: rotate 20s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* LINEE DECORATIVE */
+        header::after {
+            content: '';
+            position: absolute;
+            top: 25%;
             left: 0;
             right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
-            pointer-events: none;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(96, 165, 250, 0.3), transparent);
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; transform: scaleX(0.8); }
+            50% { opacity: 0.8; transform: scaleX(1.2); }
+        }
+
+        /* ELEMENTI GEOMETRICI LATERALI */
+        .geometric-element {
+            position: absolute;
+            border: 2px solid rgba(96, 165, 250, 0.15);
+            border-radius: 8px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .geometric-element:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            top: 35%;
+            left: 10%;
+            animation-delay: 0s;
+            transform: rotate(45deg);
+        }
+
+        .geometric-element:nth-child(2) {
+            width: 60px;
+            height: 60px;
+            top: 80%;
+            right: 15%;
+            animation-delay: 2s;
+            transform: rotate(30deg);
+        }
+
+        .geometric-element:nth-child(3) {
+            width: 50px;
+            height: 50px;
+            top: 70%;
+            left: 5%;
+            animation-delay: 4s;
+            transform: rotate(30deg);
+        }
+
+        .geometric-element:nth-child(4) {
+            width: 70px;
+            height: 70px;
+            top: 50%;
+            right: 8%;
+            animation-delay: 1s;
+            transform: rotate(60deg);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+            50% { transform: translateY(-20px) rotate(var(--rotate, 0deg)); }
         }
 
         .profile-section {
@@ -126,7 +251,7 @@
             width: 120px;
             height: 120px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
             margin: 0 auto 20px;
             display: flex;
             align-items: center;
@@ -135,53 +260,86 @@
             color: white;
             font-weight: bold;
             border: 3px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+            animation: profileGlow 4s ease-in-out infinite;
+        }
+
+
+        @keyframes profileGlow {
+            0%, 100% { box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2); }
+            50% { box-shadow: 0 15px 40px rgba(96, 165, 250, 0.4); }
+        }
+
+        /* TESTI DELL'HEADER MIGLIORATI */
+        .hero-greeting {
+            color: #60a5fa;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 400;
+            animation: fadeInUp 1s ease-out 0.2s both;
+            text-shadow: 0 2px 10px rgba(96, 165, 250, 0.3);
         }
 
         h1 {
             color: white;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
             font-size: 3rem;
             font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            letter-spacing: 1px;
         }
 
-        .subtitle {
-            color: #ff6b6b;
+        .hero-role {
+            color: #d6ddff;
             font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .hero-description {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.6s both;
+            text-shadow: 0 2px 10px rgba(214, 221, 255, 0.2);
         }
 
-        /* CONTACT LINKS - HOVER SEMPLIFICATO */
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-links a {
+        .hero-description {
             color: white;
-            text-decoration: none;
-            font-weight: 500;
-            padding: 12px 24px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 25px;
-            transition: font-weight 0.2s ease;
-            backdrop-filter: blur(5px);
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.7;
+            animation: fadeInUp 1s ease-out 0.8s both;
         }
 
-        .contact-links a:hover {
-            font-weight: 700; /* Solo grassetto al hover */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* INDICATORE DI SCROLL */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #60a5fa;
+            animation: bounce 2s infinite;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
         }
 
         .main-content {
@@ -201,7 +359,7 @@
 
         .section {
             padding: 3rem 2rem;
-            border-bottom: 1px solid #eee;
+            border-bottom: 1px solid #e2e8f0;
         }
 
         .section:last-child {
@@ -209,7 +367,7 @@
         }
 
         .section h2 {
-            color: #2c3e50;
+            color: #041f3a;
             font-size: 2.5rem;
             margin-bottom: 2rem;
             text-align: center;
@@ -221,7 +379,7 @@
             content: '';
             width: 60px;
             height: 3px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
+            background: #041f3a;
             position: absolute;
             bottom: -10px;
             left: 50%;
@@ -234,51 +392,50 @@
             text-align: center;
             max-width: 800px;
             margin: 0 auto;
-            color: #555;
+            color: #334155;
         }
 
         .highlight {
             font-weight: 600;
-            color: #2c3e50;
+            color: #1e40af;
         }
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(2, 380px);
             gap: 2rem;
             margin-top: 2rem;
+            justify-content: center;
         }
 
-        /* MODIFICHE AI PROJECT CARDS - BORDO UNIFORME E RIMOZIONE OMBRE */
+        /* MODIFICHE AI PROJECT CARDS - NUOVI COLORI BLU */
         .project-card {
-            background: #f8f9fa;
+            background: #f8fafc;
             border-radius: 10px;
             padding: 0;
-            border: 1px solid #eee; /* BORDO UNIFORME */
+            border: 0.5px solid #1e3a5f;
             transition: all 0.3s ease;
             position: relative;
             overflow: visible;
             display: block;
-            /* RIMOSSA BOX-SHADOW */
         }
 
         .project-images-header {
             position: relative;
             height: 200px;
-            background: #f8f9fa;
+            background: #f8fafc;
             overflow: visible;
             padding: 20px;
             border-radius: 10px 10px 0 0;
         }
 
-        /* MODIFICHE ALLE IMMAGINI - NUOVA ANIMAZIONE */
         .project-image {
             position: absolute;
             border-radius: 8px;
-            /* RIMOSSA BOX-SHADOW */
             overflow: hidden;
             z-index: 10;
-            transition: all 0.4s ease; /* Transizione più fluida */
+            transition: all 0.4s ease;
+            border: 0.5px solid #1e3a5f;
         }
 
         .project-image img {
@@ -292,7 +449,7 @@
             height: 160px;
             top: 20px;
             left: 50px;
-            transform: rotate(-8deg);
+            transform: rotate(-4deg);
             z-index: 12;
         }
 
@@ -301,11 +458,10 @@
             height: 160px;
             top: 20px;
             right: 50px;
-            transform: rotate(8deg);
+            transform: rotate(6deg);
             z-index: 11;
         }
 
-        /* NUOVA ANIMAZIONE HOVER - IMMAGINI PARALLELE */
         .project-card:hover .project-image:nth-child(1) {
             transform: rotate(0deg) translateX(-10px);
         }
@@ -320,44 +476,30 @@
 
         .project-content {
             padding: 2rem;
-            background: #f8f9fa;
+            background: #f8fafc;
             border-radius: 0 0 10px 10px;
             margin-top: 0;
         }
 
-        .project-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, transparent 0%, rgba(255, 107, 107, 0.05) 100%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .project-card:hover::before {
-            opacity: 1;
-        }
 
         .project-card:hover {
-            transform: translateY(-8px);
-            /* RIMOSSA BOX-SHADOW */
+            border: 1.5px solid #1e3a5f;
+            border-color: #1e3a5f;
+            transform: translateY(-5px) !important;
         }
 
         .project-title {
-            color: #2c3e50;
+            color: #1e40af;
             margin-bottom: 0.5rem;
             font-size: 1.3rem;
             font-weight: 600;
         }
 
         .project-date {
-            color: #ff6b6b;
+            color: #7d83ff;
             font-size: 0.9rem;
             margin-bottom: 1rem;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .project-tech {
@@ -368,19 +510,20 @@
         }
 
         .tech-tag {
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-            color: white;
+            background: #d6ddff;
+            color: #1e3a5f;
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
             font-size: 0.8rem;
             font-weight: 500;
+            border: 0.5px solid #1e3a5f;
         }
 
         .download-btn {
-            background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
-            color: white;
+            background: white;
+            color: #c1131f;
             padding: 0.8rem 1.5rem;
-            border: none;
+            border: 0.5px solid #c1131f;
             border-radius: 25px;
             text-decoration: none;
             display: inline-block;
@@ -390,47 +533,100 @@
         }
 
         .download-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(39, 174, 96, 0.3);
+            background: #c1131f;
+            color: white;
         }
 
+        /* NUOVI STILI PER LE PUBBLICAZIONI CON IMMAGINI */
         .publication {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-            color: white;
+            background: #eff3fc;
+            border: 0.5px solid #1e3a5f;
             border-radius: 15px;
-            padding: 2.5rem;
+            padding: 0;
             margin: 2rem 0;
             position: relative;
-            overflow: hidden;
+            overflow: visible;
+            display: flex;
+            transition: all 0.3s ease;
+            min-height: 250px;
         }
 
-        .publication::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 70% 30%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+        .publication:hover {
+            border: 1.35px solid #1e3a5f;
+            transform: translateY(-5px);
         }
 
         .publication-content {
             position: relative;
             z-index: 1;
+            flex: 1;
+            padding: 2.5rem;
+            padding-right: 280px; /* Spazio per le immagini */
+        }
+
+        .publication-images {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 240px;
+            height: 200px;
+            overflow: visible;
+        }
+
+        .publication-image {
+            position: absolute;
+            border-radius: 8px;
+            overflow: hidden;
+            z-index: 10;
+            transition: all 0.4s ease;
+            border: 0.5px solid #1e3a5f;
+        }
+
+        .publication-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .publication-image:nth-child(1) {
+            width: 130px;
+            height: 160px;
+            top: -85px;
+            right: 30px;
+            transform: rotate(-4deg);
+            z-index: 12;
+        }
+
+        .publication-image:nth-child(2) {
+            width: 130px;
+            height: 160px;
+            top: 85px;
+            right: 80px;
+            transform: rotate(6deg);
+            z-index: 11;
+        }
+
+        .publication:hover .publication-image:nth-child(1) {
+            transform: rotate(0deg) translateX(10px);
+        }
+
+        .publication:hover .publication-image:nth-child(2) {
+            transform: rotate(0deg) translateX(-10px);
         }
 
         .publication h3 {
             margin-bottom: 1.5rem;
             font-size: 1.4rem;
-            color: #ff6b6b;
+            color: #1e40af;
         }
 
-        /* MODIFICHE PER LA SEZIONE SKILLS - ALLINEAMENTO PERFETTO */
+        /* MODIFICHE PER LA SEZIONE SKILLS - NUOVI COLORI BLU */
         #skills {
-            background: #f8f9fa;
+            background: #f1f5f9;
             margin: 0;
             padding: 3rem 0;
-            border-bottom: 1px solid #eee;
+            border-bottom: none;
             border-radius: 0;
             width: 100vw;
             position: relative;
@@ -458,7 +654,7 @@
             background: white;
             padding: 2rem;
             border-radius: 15px;
-            border-left: 4px solid #4ecdc4;
+            border: 0.5px solid #1e3a5f;
             transition: all 0.3s ease;
             height: 100%;
             display: flex;
@@ -466,18 +662,16 @@
         }
 
         .skill-category:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-            border-left-color: #ff6b6b;
+            border: 1.5px solid #1e3a5f;
+            transform: translateY(-5px) !important;
         }
 
-        /* ALTEZZA FISSA PER I TITOLI - ALLINEAMENTO PERFETTO */
         .skill-category h3 {
-            color: #2c3e50;
+            color: #1e40af;
             margin-bottom: 1.5rem;
             font-size: 1.2rem;
             font-weight: 600;
-            height: 60px; /* Altezza fissa per tutti i titoli */
+            height: 60px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -490,13 +684,12 @@
             flex-grow: 1;
         }
 
-        /* ALTEZZA FISSA PER OGNI VOCE DELL'ELENCO - ALLINEAMENTO PERFETTO */
         .skill-list li {
             padding: 0;
-            border-bottom: 1px solid #ecf0f1;
-            color: #555;
+            border-bottom: 0.5px solid #e2e8f0;
+            color: #475569;
             transition: color 0.3s ease;
-            height: 70px; /* Altezza fissa per tutte le voci */
+            height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -505,7 +698,7 @@
         }
 
         .skill-list li:hover {
-            color: #ff6b6b;
+            color: #3b82f6;
         }
 
         .skill-list li:last-child {
@@ -520,53 +713,37 @@
         }
 
         .award-card {
-            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1) 0%, rgba(78, 205, 196, 0.1) 100%);
+            background: #eff3fc;
             border-radius: 15px;
             padding: 2rem;
-            border: 2px solid transparent;
+            border: 0.5px solid #1e3a5f;
             background-clip: padding-box;
             position: relative;
             transition: all 0.3s ease;
         }
 
-        .award-card::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%);
-            border-radius: 15px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .award-card:hover::before {
-            opacity: 1;
-        }
 
         .award-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-5px) !important;
+            border: 1.5px solid #1e3a5f;
         }
 
         .award-title {
-            color: #2c3e50;
+            color: #1e40af;
             margin-bottom: 0.5rem;
             font-size: 1.2rem;
             font-weight: 600;
         }
 
         .award-date {
-            color: #ff6b6b;
+            color: #3b82f6;
             font-size: 0.9rem;
             margin-bottom: 1rem;
             font-weight: 500;
         }
 
         footer {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
             color: white;
             text-align: center;
             padding: 3rem 2rem;
@@ -590,6 +767,11 @@
                 padding: 0.7rem 1rem;
             }
 
+            .navbar-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
             .navbar-links {
                 padding: 0.3rem;
                 gap: 0;
@@ -600,24 +782,43 @@
                 font-size: 0.9rem;
             }
 
+            .navbar-contacts {
+                order: -1;
+                padding: 0.3rem;
+            }
+
+            .contact-link {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
             header {
-                padding: 5rem 1rem 3rem 1rem; /* Aggiustato per mobile */
+                padding: 6rem 1rem 4rem 1rem;
+                min-height: 60vh;
+            }
+
+            .geometric-element {
+                display: none;
             }
 
             .container {
                 padding: 10px;
             }
             
-            header {
-                padding: 2rem 1rem;
-            }
-            
             h1 {
                 font-size: 2.2rem;
             }
-            
-            .contact-links {
-                gap: 1rem;
+
+            .hero-greeting {
+                font-size: 1.2rem;
+            }
+
+            .hero-role {
+                font-size: 1.1rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
             }
             
             .projects-grid,
@@ -642,7 +843,6 @@
                 padding: 0 1rem;
             }
 
-            /* Su mobile, riduci leggermente le altezze fisse per ottimizzare lo spazio */
             .skill-category h3 {
                 height: 50px;
                 font-size: 1.1rem;
@@ -652,38 +852,90 @@
                 height: 60px;
                 font-size: 0.9rem;
             }
+
+            /* RESPONSIVE PER LE PUBBLICAZIONI */
+            .publication {
+                flex-direction: column;
+                min-height: auto;
+            }
+
+            .publication-content {
+                padding: 2rem 1.5rem;
+                padding-right: 1.5rem;
+            }
+
+            .publication-images {
+                position: relative;
+                right: auto;
+                top: auto;
+                transform: none;
+                width: 100%;
+                height: 150px;
+                margin-top: 1rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .publication-image:nth-child(1) {
+                width: 80px;
+                height: 100px;
+                top: 10px;
+                right: 80px;
+                transform: rotate(-4deg);
+            }
+
+            .publication-image:nth-child(2) {
+                width: 80px;
+                height: 100px;
+                top: 30px;
+                right: 20px;
+                transform: rotate(6deg);
+            }
         }
     </style>
 </head>
 <body>
-    <!-- NAVBAR SEMPLIFICATA -->
+    <!-- NAVBAR AGGIORNATA CON CONTATTI IN TESTO -->
     <nav class="navbar" id="navbar">
         <div class="navbar-content">
             <div class="navbar-links">
-                <a href="#about">About</a>
+                <a href="#about">About Me</a>
                 <a href="#projects">Projects</a>
                 <a href="#publications">Publications</a>
                 <a href="#skills">Skills</a>
                 <a href="#awards">Awards</a>
+            </div>
+            <div class="navbar-contacts">
+                <a href="mailto:angelofoggetti@outlook.com" class="contact-link">Email</a>
+                <a href="https://www.linkedin.com/in/angelo-foggetti-34b221262/" target="_blank" class="contact-link">LinkedIn</a>
+                <a href="tel:+393279312223" class="contact-link">Phone</a>
             </div>
         </div>
     </nav>
 
     <div class="container" id="top">
         <header>
+            <!-- Elementi geometrici decorativi -->
+            <div class="geometric-element" style="--rotate: 45deg;"></div>
+            <div class="geometric-element" style="--rotate: 30deg;"></div>
+            <div class="geometric-element" style="--rotate: 30deg;"></div>
+            <div class="geometric-element" style="--rotate: 60deg;"></div>
+            
             <div class="profile-section">
                 <div class="profile-img">AF</div>
-                <h1>Angelo Foggetti</h1>
-                <div class="subtitle">Management Engineer</div>
+                <h1>Hello, I'm Angelo Foggetti!</h1>
                 <p class="hero-description">
-                    Advanced Manufacturing & AI specialist with <span class="highlight">110/110 cum laude</span> graduation and special mention. 
-                    Focused on optimization, production process management, and AI-based solutions.
+                    I'm a Management Engineer with expertise in Optimization, Production Processes Management and AI-driven Solutions.
                 </p>
-                <div class="contact-links">
-                    <a href="mailto:angelofoggetti@gmail.com">Email</a>
-                    <a href="https://www.linkedin.com/in/angelo-foggetti-34b221262/" target="_blank">LinkedIn</a>
-                    <a href="tel:+393279312223">Phone</a>
-                </div>
+                <p class="hero-role">
+                    Here you can explore my projects, my academic journey, and the ideas that drive my work in engineering and innovation.
+                </p>
+            </div>
+            
+            <!-- Indicatore di scroll -->
+            <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView()">
+                ↓
             </div>
         </header>
 
@@ -692,38 +944,17 @@
                 <section id="about" class="section">
                     <h2>About Me</h2>
                     <div class="about-text">
-                        <p>Graduated in <span class="highlight">Management Engineering</span> with a curriculum in Advanced Manufacturing and Operations Management, I have developed skills in <span class="highlight">optimization and production process management</span>, with a strong interest in <span class="highlight">data analysis and Artificial Intelligence-based solutions</span>.</p>
+                        <p> I graduated in <span class="highlight">Management Engineering</span> at University of Salento, with a curriculum in <span class="highlight">Advanced Manufacturing and Operations Management</span>, obtaining the final grade of 110/100 cum laude and special mention.</p> 
+                        <p style="margin-top: 1.5rem;"> Over the course of my academic journey, I have developed skills in <span class="highlight">optimization and production process management</span>, with a strong interest in <span class="highlight">data analysis and Artificial Intelligence-based solutions</span>.</p>
                         
-                        <p style="margin-top: 1.5rem;">Throughout my academic journey, I explored these areas from both theoretical and practical perspectives, consolidating a strong interest in industrial research and a clear inclination toward the management of technological projects. This experience has strengthened my motivation to operate within the industrial sector, a dynamic and stimulating environment where I can apply an engineering-driven approach focused on <span class="highlight">efficiency, innovation, and advanced decision-making</span>.</p>
+                        <p style="margin-top: 1.5rem;">I explored these areas from both theoretical and practical perspectives, consolidating a strong interest in <span class="highlight">industrial research </span> and a clear inclination toward the management of technological projects.</p>
+                        <p>This experience has strengthened my motivation to operate within the <span class="highlight">industrial sector</span>, a dynamic and stimulating environment where I can apply an engineering-driven approach focused on <span class="highlight">efficiency, innovation, and advanced decision-making</span>.</p>
                     </div>
                 </section>
 
                 <section id="projects" class="section">
                     <h2>Academic Projects</h2>
                     <div class="projects-grid">
-                        <div class="project-card">
-                            <div class="project-images-header">
-                                <div class="project-image">
-                                    <img src="images/tpe_01.jpg" alt="TPE Algorithm Screenshot 1">
-                                </div>
-                                <div class="project-image">
-                                    <img src="images/tpe_02.jpg" alt="TPE Algorithm Screenshot 2">
-                                </div>
-                            </div>
-                            <div class="project-content">
-                                <h3 class="project-title">Tree-Structured Parzen Estimator for Metaheuristics</h3>
-                                <div class="project-date">April 2025 | Master's Thesis</div>
-                                <p>Advanced optimization framework using Bayesian techniques (TPE) to tune Genetic Algorithms for assignment problems. Developed a data-driven approach that significantly enhanced solution quality and scalability.</p>
-                                <div class="project-tech">
-                                    <span class="tech-tag">Python</span>
-                                    <span class="tech-tag">Optuna</span>
-                                    <span class="tech-tag">Genetic Algorithms</span>
-                                    <span class="tech-tag">Bayesian Optimization</span>
-                                </div>
-                                <a href="#" class="download-btn">Download PDF</a>
-                            </div>
-                        </div>
-
                         <div class="project-card">
                             <div class="project-images-header">
                                 <div class="project-image">
@@ -736,13 +967,13 @@
                             <div class="project-content">
                                 <h3 class="project-title">Energy Audit Report - Residential Property Analysis</h3>
                                 <div class="project-date">January 2025 | Energy Management</div>
-                                <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p>
+                                <p>Comprehensive energy efficiency assessment following UNI CEI EN 16247-1/2 standards. Analyzed consumption patterns, thermal demand, and proposed optimization strategies.</p> 
                                 <div class="project-tech">
                                     <span class="tech-tag">Energy Analysis</span>
                                     <span class="tech-tag">UNI Standards</span>
                                     <span class="tech-tag">Efficiency Optimization</span>
                                 </div>
-                                <a href="#" class="download-btn">Download PDF</a>
+                                <a href="projects/energy-audit.pdf" class="download-btn">Download PDF</a>
                             </div>
                         </div>
 
@@ -765,7 +996,7 @@
                                     <span class="tech-tag">Optimization</span>
                                     <span class="tech-tag">Gantt Charts</span>
                                 </div>
-                                <a href="#" class="download-btn">Download PDF</a>
+                                <a href="projects/matlab-scheduling.pdf" class="download-btn">Download PDF</a>
                             </div>
                         </div>
 
@@ -781,14 +1012,14 @@
                             <div class="project-content">
                                 <h3 class="project-title">Robotized Flexible Manufacturing System Design</h3>
                                 <div class="project-date">January 2024 | Robotized Manufacturing</div>
-                                <p>Complete FMS configuration for aluminum shell production with robotics simulation. Integrated Webots simulation with Autodesk Fusion 360 modeling and machining cycles.</p>
+                                <p>Complete FMS configuration for aluminum shell production, with robotics simulation in Webots. Integrated with Autodesk Fusion 360 for both CAD modeling and CAM machining cycles.</p>
                                 <div class="project-tech">
                                     <span class="tech-tag">Webots</span>
                                     <span class="tech-tag">Autodesk Fusion 360</span>
                                     <span class="tech-tag">FMS Design</span>
                                     <span class="tech-tag">Robotics</span>
                                 </div>
-                                <a href="projects/fms-deisgn.pdf" class="download-btn">Download PDF</a>
+                                <a href="projects/fms-design.pdf" class="download-btn">Download PDF</a>
                             </div>
                         </div>
 
@@ -802,16 +1033,16 @@
                                 </div>
                             </div>
                             <div class="project-content">
-                                <h3 class="project-title">PNRR Database Development</h3>
-                                <div class="project-date">December 2022 | Data Management</div>
-                                <p>Comprehensive database system for PNRR project analysis. Included EER modeling, relational schema development, MySQL implementation, and advanced SQL queries.</p>
+                                <h3 class="project-title">PNRR Project Data Database Development</h3>
+                                <div class="project-date">January 2023 | Data Management</div>
+                                <p>Comprehensive database system for PNRR project analysis. Included detailed EER modeling, relational schema development, MySQL implementation, and advanced SQL queries for data exploration.</p>
                                 <div class="project-tech">
                                     <span class="tech-tag">MySQL</span>
                                     <span class="tech-tag">Database Design</span>
                                     <span class="tech-tag">EER Modeling</span>
                                     <span class="tech-tag">SQL</span>
                                 </div>
-                                <a href="#" class="download-btn">Download PDF</a>
+                                <a href="projects/pnrr-database.pdf" class="download-btn">Download PDF</a>
                             </div>
                         </div>
                     </div>
@@ -826,8 +1057,16 @@
                             <p><strong>Journal:</strong> Journal of Artificial Intelligence and Autonomous Intelligence</p>
                             <p><strong>Status:</strong> Accepted for publication (May 9, 2025)</p>
                             <p><strong>ISSN:</strong> 3049-2297</p>
-                            <p style="margin-top: 1.5rem;"><strong>Abstract:</strong> This research presents an innovative approach to parameter tuning in metaheuristic algorithms using Tree-Structured Parzen Estimator (TPE). The methodology demonstrates significant improvements in optimization performance through intelligent, data-driven parameter selection.</p>
-                            <a href="#" class="download-btn">Download Paper</a>
+                            <p style="margin-top: 1.5rem;"><strong>Summary:</strong> This study addresses the scheduling problem with sequence-dependent setup times by proposing an intelligent framework that integrates a Genetic Algorithm (GA) with automatic parameter tuning via the Tree-Structured Parzen Estimator (TPE). Tested on parallel machine scheduling problems, the method reduces completion times by up to 32.12% (14.87% on average) compared to exact algorithms under equal computational budgets. Applying TPE to Simulated Annealing yields inferior results (−1.10% to −13.23%), confirming the superiority of the GA-TPE approach. The proposed solution stands out for its scalability and direct impact on production efficiency and cost reduction.</p>
+                            <a href="https://jaiai.org/archive/tuning-metaheuristics-with-tree-structured-parzen-estimator-a-case-study-on-scheduling" class="download-btn">View Article</a>
+                        </div>
+                        <div class="publication-images">
+                            <div class="publication-image">
+                                <img src="images/publication_01.jpg" alt="TPE Research Publication Screenshot 1">
+                            </div>
+                            <div class="publication-image">
+                                <img src="images/publication_02.jpg" alt="TPE Research Publication Screenshot 2">
+                            </div>
                         </div>
                     </div>
                 </section>
@@ -847,7 +1086,7 @@
                             </ul>
                         </div>
                         <div class="skill-category">
-                            <h3>Design & Simulation</h3>
+                            <h3>Design & <br> Simulation</h3>
                             <ul class="skill-list">
                                 <li>Autodesk Fusion 360</li>
                                 <li>Webots (Robotics Simulation)</li>
@@ -856,7 +1095,7 @@
                             </ul>
                         </div>
                         <div class="skill-category">
-                            <h3>AI & Machine Learning</h3>
+                            <h3>AI & <br> Machine Learning</h3>
                             <ul class="skill-list">
                                 <li>Metaheuristics Development</li>
                                 <li>Bayesian Optimization</li>
@@ -865,7 +1104,7 @@
                             </ul>
                         </div>
                         <div class="skill-category">
-                            <h3>Industrial Engineering</h3>
+                            <h3>Industrial<br> Engineering</h3>
                             <ul class="skill-list">
                                 <li>Production Scheduling</li>
                                 <li>FMS Design</li>
@@ -895,7 +1134,7 @@
                         <div class="award-card">
                             <h3 class="award-title">2nd Place - CREATIVE@HUBs Competition</h3>
                             <div class="award-date">June 2023</div>
-                            <p><strong>"E.D.Re.F."</strong> - Innovative circular economy model for the agri-food sector with comprehensive business plan and environmental analysis.</p>
+                            <p><strong>"E.D.Re.F."</strong> - Innovative circular economy model for the agri-food sector, supported by a comprehensive business plan and an <br> in-depht environmental analysis.</p>
                             <div class="project-tech">
                                 <span class="tech-tag">Business Planning</span>
                                 <span class="tech-tag">PEST Analysis</span>
@@ -942,7 +1181,7 @@
         }, observerOptions);
 
         // Observe all cards and sections
-        document.querySelectorAll('.project-card, .skill-category, .award-card, .section').forEach(el => {
+        document.querySelectorAll('.project-card, .skill-category, .award-card, .section, .publication').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
